@@ -32,5 +32,6 @@ I = csphantom(n,bw,snr,b1scale,imgReal);
 subplot(212);
 imshow(abs(I));
 colormap(gray);
+title 'advanced usage'
 axis image;
 
