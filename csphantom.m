@@ -51,7 +51,7 @@ quadrant_size = round((n - round(0.1*n))/2);
 bglevel = 0.5;  % central background gray level
 [X, Y] = meshgrid(1:(2*quadrant_size), 1:(2*quadrant_size));
 R = sqrt((X-quadrant_size).^2 + (Y-quadrant_size).^2);
-BG = bglevel * cos(b1scale*R/(0.4*pi*quadrant_size));
+BG = bglevel * besselj(0,b1scale*2*R/max(R(:)));
 
 % go back to quadrant coordinates
 [X, Y] = meshgrid(1:quadrant_size, 1:quadrant_size);
