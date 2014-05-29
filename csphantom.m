@@ -205,8 +205,7 @@ if ~isinf(bandwidth)
   n = n / bandwidth;  % truncate Fourier data
   F = F([1:ceil(n/2) end-floor(n/2)+1:end],[1:ceil(n/2) end-floor(n/2)+1:end]);
   % ringing filter
-  W = ifftshift(genRiesz([n n],0.6,0.6));
-  %W = ifftshift(tukey(n)*tukey(n)');
+  W = ifftshift(tukey(n)*tukey(n)');
   F = F .* W; % apply window
   I = abs(ifft2(F)) / bandwidth^2;
 end
